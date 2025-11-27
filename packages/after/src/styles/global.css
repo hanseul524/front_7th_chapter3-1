@@ -1,0 +1,58 @@
+@import "../tokens/index.css";
+@import "tw-animate-css";
+
+@plugin "tailwindcss-animate";
+
+/* Custom Variants */
+@custom-variant dark (&:is(.dark *));
+
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply border-[var(--color-border)] outline-[var(--color-focus-ring)]/50;
+  }
+
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-foreground)];
+    font-family: var(--font-family-sans);
+    line-height: var(--line-height-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-selection-bg);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+  }
+
+  code, pre {
+    font-family: var(--font-code);
+  }
+}
+
+/* Component Layer - Optional utility classes */
+@layer components {
+  /* Focus visible utility */
+  .focus-ring {
+    @apply outline-none ring-2 ring-[var(--color-focus-ring)] ring-offset-2;
+  }
+
+  /* Disabled state utility */
+  .disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+  /* Truncate text utility */
+  .truncate {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+}
+
