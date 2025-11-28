@@ -7,9 +7,9 @@ import path from 'path'
 export default defineConfig(({ mode }) => ({
   base: "/front_7th_chapter3-1/",
   plugins: [
-    react(),
-    // Only use Tailwind plugin in non-test mode
+    // Tailwind must be before React plugin to process CSS correctly
     ...(mode !== "test" ? [tailwindcss()] : []),
+    react(),
   ],
   resolve: {
     alias: {
