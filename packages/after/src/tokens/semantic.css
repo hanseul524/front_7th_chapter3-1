@@ -1,6 +1,6 @@
 /* ==========================================
-   SEMANTIC TOKENS (Layer 2)
-   Contextual - Purpose-driven tokens mapped from primitives
+  SEMANTIC TOKENS (Layer 2)
+  Contextual - Purpose-driven tokens mapped from primitives
    ========================================== */
 
 @import './primitive.css';
@@ -43,8 +43,8 @@
   --color-background-muted: var(--color-slate-50);
   --color-background-subtle: var(--color-slate-100);
   --color-foreground: var(--color-slate-900);
-  --color-foreground-muted: var(--color-slate-600);
-  --color-foreground-subtle: var(--color-slate-500);
+  --color-foreground-muted: var(--color-slate-500);
+  --color-foreground-subtle: var(--color-slate-400);
 
   /* ===== Border Colors ===== */
   --color-border: var(--color-slate-200);
@@ -80,7 +80,7 @@
   /* ===== Semantic Radius ===== */
   --radius-input: var(--radius-md);
   --radius-card: var(--radius-lg);
-  --radius-button: var(--radius-md);
+  --radius-button: var(--radius-lg);
   --radius-modal: var(--radius-xl);
   --radius-badge: var(--radius-full);
 
@@ -93,6 +93,13 @@
   --shadow-card: var(--shadow-sm);
   --shadow-dropdown: var(--shadow-md);
   --shadow-modal: var(--shadow-xl);
+
+  /* ===== Page-specific ===== */
+  --surface-base: var(--color-slate-50);
+  --surface-subtle: var(--color-slate-100);
+  --card-bg: white;
+  --card-border: var(--color-slate-200);
+  --card-radius: var(--radius-lg);
 }
 
 /* ===== Dark Mode Semantic ===== */
