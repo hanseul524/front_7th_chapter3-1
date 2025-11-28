@@ -4,10 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
-    tailwindcss(),
+    // Only use Tailwind plugin in non-test mode
+    ...(mode !== 'test' ? [tailwindcss()] : []),
   ],
   resolve: {
     alias: {
@@ -18,6 +19,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
-    css: true,
+    css: false,
   },
-})
+}))
