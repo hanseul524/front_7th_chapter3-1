@@ -107,22 +107,22 @@
   --table-border: var(--color-border);
   --table-radius: var(--radius-card);
   
-  --table-header-bg: var(--color-background-muted);
+  --table-header-bg: transparent;
   --table-header-fg: var(--color-foreground-muted);
   --table-header-font-size: var(--font-size-xs);
-  --table-header-font-weight: var(--font-weight-semibold);
-  --table-header-text-transform: uppercase;
+  --table-header-font-weight: var(--font-weight-medium);
+  --table-header-text-transform: none;
   
   --table-row-bg: var(--color-background);
-  --table-row-hover-bg: var(--color-background-subtle);
-  --table-row-border: var(--color-border);
+  --table-row-hover-bg: var(--color-background-muted);
+  --table-row-border: var(--color-border-subtle);
   
   --table-cell-padding-y: var(--space-3);
   --table-cell-padding-x: var(--space-4);
-  --table-cell-font-size: var(--font-size-sm);
+  --table-cell-font-size: var(--font-size-xs);
 
   /* Modal Component */
-  --modal-overlay-bg: rgb(0 0 0 / 0.5);
+  --modal-overlay-bg: rgb(0 0 0 / 0.7);
   --modal-bg: var(--color-background);
   --modal-border: var(--color-border);
   --modal-radius: var(--radius-modal);

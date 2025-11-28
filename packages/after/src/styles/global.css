@@ -1,7 +1,4 @@
 @import "../tokens/index.css";
-@import "tw-animate-css";
-
-@plugin "tailwindcss-animate";
 
 /* Custom Variants */
 @custom-variant dark (&:is(.dark *));
@@ -11,9 +8,9 @@
 
 /* Base Styles */
 @layer base {
-  * {
+  /* * {
     @apply border-[var(--color-border)] outline-[var(--color-focus-ring)]/50;
-  }
+  } */
 
   body {
     @apply bg-[var(--color-background)] text-[var(--color-foreground)];
@@ -53,6 +50,29 @@
   /* Truncate text utility */
   .truncate {
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  /* Table Component Utilities - Design System */
+  .table-cell {
+    padding: var(--space-4) var(--table-cell-padding-x);
+    font-size: var(--table-cell-font-size);
+  }
+
+  .table-head {
+    padding: var(--space-4) var(--table-cell-padding-x);
+    font-size: var(--table-header-font-size);
+    font-weight: var(--font-weight-bold);
+    color: var(--table-header-fg);
+  }
+
+  .border-collapse {
+    border-collapse: collapse;
+  }
+
+  /* Dialog Overlay - Ensure dark background */
+  [data-radix-dialog-overlay] {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    z-index: 1040 !important;
   }
 }
 

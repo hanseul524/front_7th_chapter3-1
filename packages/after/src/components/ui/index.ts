@@ -6,3 +6,7 @@ export * from "./label";
 export * from "./select";
 export * from "./table";
 export * from "./alert";
+export * from "./header";
+export * from "./dialog";
+export * from "./textarea";
+export * from "./badge";
