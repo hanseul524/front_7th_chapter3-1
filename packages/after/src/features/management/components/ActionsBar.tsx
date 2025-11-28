@@ -17,9 +17,9 @@ export const ActionsBar: React.FC<ActionsBarProps> = ({
   onCloseError,
 }) => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-[var(--spacing-component-md)]">
       {errorMessage && (
-        <Alert variant="error" title="오류" onClose={onCloseError}>
+        <Alert variant="destructive" title="오류" onClose={onCloseError}>
           {errorMessage}
         </Alert>
       )}
@@ -28,8 +28,12 @@ export const ActionsBar: React.FC<ActionsBarProps> = ({
           {successMessage}
         </Alert>
       )}
-      <div className="flex justify-end">
-        <Button variant="default" size="md" onClick={onCreateOpen}>
+      <div className="flex justify-end gap-[var(--spacing-component-sm)]">
+        <Button 
+          variant="default" 
+          size="sm" 
+          onClick={onCreateOpen}
+        >
           새로 만들기
         </Button>
       </div>
