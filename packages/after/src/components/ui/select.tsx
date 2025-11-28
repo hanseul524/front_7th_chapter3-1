@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { Check, ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -16,89 +16,35 @@ const SelectTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cn(
-      // Layout
-      "flex w-full items-center justify-between",
-      "h-[var(--select-height)]",
-      "px-[var(--select-padding-x)]",
-      "py-[var(--select-padding-y)]",
-      
-      // Shape
-      "rounded-[var(--select-radius)]",
-      "border",
-      "border-[var(--select-border)]",
-      
-      // Colors
-      "bg-[var(--select-bg)]",
-      "text-[var(--select-fg)]",
-      "data-[placeholder]:text-[var(--select-placeholder)]",
-      
-      // Typography
-      "text-sm whitespace-nowrap",
-      "[&>span]:line-clamp-1",
-      
-      // Transitions
-      "transition-all duration-200",
-      
-      // Focus
-      "focus:outline-none",
-      "focus:ring-2",
-      "focus:ring-[var(--select-focus-ring)]",
-      "focus:border-[var(--select-focus-border)]",
-      
-      // Disabled
-      "disabled:cursor-not-allowed",
-      "disabled:opacity-50",
-      
-      // Shadow
-      "shadow-sm",
-      
-      className
-    )}
+    className={className}
+    style={{
+      display: 'flex',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: '2.5rem',
+      padding: '0 0.75rem',
+      fontSize: '0.875rem',
+      lineHeight: '1.25rem',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: 'var(--color-border)',
+      borderRadius: '0.375rem',
+      backgroundColor: 'var(--color-background)',
+      color: 'var(--color-foreground)',
+      cursor: 'pointer',
+    }}
     {...props}
   >
-    {children}
+    <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+      {children}
+    </span>
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <ChevronDown style={{ width: '1rem', height: '1rem', opacity: 0.5, flexShrink: 0, marginLeft: '0.5rem' }} />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
-
-const SelectScrollUpButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollUpButton
-    ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className
-    )}
-    {...props}
-  >
-    <ChevronUp className="h-4 w-4" />
-  </SelectPrimitive.ScrollUpButton>
-))
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
-
-const SelectScrollDownButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.ScrollDownButton
-    ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className
-    )}
-    {...props}
-  >
-    <ChevronDown className="h-4 w-4" />
-  </SelectPrimitive.ScrollDownButton>
-))
-SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -107,58 +53,36 @@ const SelectContent = React.forwardRef<
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
-      className={cn(
-        // Layout & Position
-        "relative z-50",
-        "max-h-[--radix-select-content-available-height]",
-        "min-w-[8rem]",
-        "overflow-y-auto overflow-x-hidden",
-        "origin-[--radix-select-content-transform-origin]",
-        
-        // Shape
-        "rounded-[var(--dropdown-radius)]",
-        "border",
-        "border-[var(--dropdown-border)]",
-        
-        // Colors
-        "bg-[var(--dropdown-bg)]",
-        "text-[var(--dropdown-fg)]",
-        
-        // Shadow
-        "shadow-[var(--dropdown-shadow)]",
-        
-        // Animations
-        "data-[state=open]:animate-in",
-        "data-[state=closed]:animate-out",
-        "data-[state=closed]:fade-out-0",
-        "data-[state=open]:fade-in-0",
-        "data-[state=closed]:zoom-out-95",
-        "data-[state=open]:zoom-in-95",
-        "data-[side=bottom]:slide-in-from-top-2",
-        "data-[side=left]:slide-in-from-right-2",
-        "data-[side=right]:slide-in-from-left-2",
-        "data-[side=top]:slide-in-from-bottom-2",
-        
-        // Popper-specific
-        position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-        
-        className
-      )}
+      className={className}
       position={position}
+      style={{
+        position: 'relative',
+        zIndex: 9999,
+        maxHeight: '24rem',
+        minWidth: '8rem',
+        overflow: 'hidden',
+        borderRadius: '0.5rem',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'var(--color-border)',
+        backgroundColor: 'var(--color-background)',
+        color: 'var(--color-foreground)',
+        boxShadow: 'var(--shadow-dropdown)',
+        ...(position === "popper" && { marginTop: '0.25rem' }),
+      }}
       {...props}
     >
-      <SelectScrollUpButton />
       <SelectPrimitive.Viewport
         className={cn(
-          "p-1",
           position === "popper" &&
             "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
         )}
+        style={{
+          padding: '0.25rem',
+        }}
       >
         {children}
       </SelectPrimitive.Viewport>
-      <SelectScrollDownButton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ))
@@ -170,7 +94,12 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("px-2 py-1.5 text-sm font-semibold", className)}
+    className={className}
+    style={{
+      padding: '0.375rem 2rem 0.375rem 0.5rem',
+      fontSize: '0.875rem',
+      fontWeight: 600,
+    }}
     {...props}
   />
 ))
@@ -182,15 +111,24 @@ const SelectItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
-    className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className
-    )}
+    className={className}
+    style={{
+      position: 'relative',
+      display: 'flex',
+      width: '100%',
+      cursor: 'pointer',
+      userSelect: 'none',
+      alignItems: 'center',
+      borderRadius: '0.125rem',
+      padding: '0.375rem 2rem 0.375rem 2rem',
+      fontSize: '0.875rem',
+      outline: 'none',
+    }}
     {...props}
   >
-    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+    <span style={{ position: 'absolute', left: '0.5rem', display: 'flex', height: '0.875rem', width: '0.875rem', alignItems: 'center', justifyContent: 'center' }}>
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
+        <Check style={{ width: '1rem', height: '1rem' }} />
       </SelectPrimitive.ItemIndicator>
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -204,11 +142,19 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-muted", className)}
+    className={className}
+    style={{
+      margin: '0.25rem -0.25rem',
+      height: '1px',
+      backgroundColor: 'var(--color-border)',
+    }}
     {...props}
   />
 ))
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+
+const SelectScrollUpButton = SelectPrimitive.ScrollUpButton
+const SelectScrollDownButton = SelectPrimitive.ScrollDownButton
 
 export {
   Select,

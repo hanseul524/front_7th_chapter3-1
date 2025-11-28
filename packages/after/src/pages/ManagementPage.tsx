@@ -80,7 +80,7 @@ export const ManagementPage: React.FC = () => {
         </div>
 
         {/* Main Card */}
-        <div className="bg-white border border-[var(--color-border)] rounded-[var(--radius-lg)] shadow-sm overflow-hidden">
+        <div className="bg-[var(--card-bg)] border border-[var(--color-border)] rounded-[var(--radius-lg)] shadow-sm overflow-hidden">
           {/* Tabs */}
           <div className="border-b border-[var(--color-border)] px-6 py-5">
             <div className="inline-flex gap-1 bg-[var(--color-background-subtle)] rounded-lg p-1">

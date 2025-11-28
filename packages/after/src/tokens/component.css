@@ -77,10 +77,16 @@
   --select-height-sm: var(--input-height-sm);
   --select-height-md: var(--input-height-md);
   --select-height-lg: var(--input-height-lg);
+  --select-height: var(--input-height-md);
   --select-padding-x: var(--input-padding-x);
+  --select-padding-y: var(--input-padding-y);
   --select-radius: var(--input-radius);
   --select-bg: var(--input-bg);
+  --select-fg: var(--input-fg);
   --select-border: var(--input-border);
+  --select-placeholder: var(--input-placeholder);
+  --select-focus-ring: var(--color-primary);
+  --select-focus-border: var(--input-border-focus);
 
   /* Label Component */
   --label-font-size: var(--font-size-sm);

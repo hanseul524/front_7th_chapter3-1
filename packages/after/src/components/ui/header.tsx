@@ -1,11 +1,15 @@
 import React from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/hooks';
 
 type HeaderProps = {
   className?: string;
 };
 
 export const Header: React.FC<HeaderProps> = ({ className }) => {
+  const { isDark, toggleTheme } = useTheme();
+
   return (
     <header
       className={cn(
@@ -52,6 +56,27 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         </div>
 
         <div className="flex items-center gap-[var(--spacing-component-md)]">
+          {/* 다크모드 토글 버튼 */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center rounded-[var(--radius-lg)] border transition-colors hover:bg-[var(--color-background-muted)]"
+            style={{
+              height: '40px',
+              width: '40px',
+              borderColor: 'var(--color-border)',
+              backgroundColor: 'var(--color-background)',
+              color: 'var(--color-foreground)',
+              cursor: 'pointer',
+            }}
+            aria-label={isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}
+          >
+            {isDark ? (
+              <Sun style={{ width: '20px', height: '20px' }} />
+            ) : (
+              <Moon style={{ width: '20px', height: '20px' }} />
+            )}
+          </button>
+
           <div className="text-right leading-tight">
             <div 
               className="text-[var(--color-foreground)]"

@@ -12,12 +12,18 @@
     @apply border-[var(--color-border)] outline-[var(--color-focus-ring)]/50;
   } */
 
+  html {
+    background-color: var(--color-background);
+  }
+
   body {
-    @apply bg-[var(--color-background)] text-[var(--color-foreground)];
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: var(--font-family-sans);
     line-height: var(--line-height-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
@@ -73,6 +79,33 @@
   [data-radix-dialog-overlay] {
     background-color: rgba(0, 0, 0, 0.7) !important;
     z-index: 1040 !important;
+  }
+
+  /* Select Content - Higher z-index than dialog */
+  [data-radix-select-content] {
+    z-index: 9999 !important;
+  }
+
+  /* Select Item - Hover state */
+  [data-radix-select-item] {
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+  
+  [data-radix-select-item][data-highlighted] {
+    background-color: var(--color-background-muted) !important;
+    outline: none !important;
+  }
+
+  [data-radix-select-item][data-state="checked"] {
+    font-weight: 500 !important;
+  }
+
+  /* Select Content - Dark mode support */
+  .dark [data-radix-select-content] {
+    background-color: var(--color-background-subtle) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-foreground) !important;
   }
 }
 

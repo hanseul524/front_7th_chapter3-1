@@ -156,5 +156,11 @@
   --color-disabled-bg: var(--color-slate-800);
   --color-disabled-fg: var(--color-slate-600);
   --color-disabled-border: var(--color-slate-700);
+
+  /* Page-specific - Dark Mode */
+  --surface-base: var(--color-slate-900);
+  --surface-subtle: var(--color-slate-800);
+  --card-bg: var(--color-slate-900);
+  --card-border: var(--color-slate-800);
 }
 
