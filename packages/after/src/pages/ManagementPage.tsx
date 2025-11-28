@@ -17,7 +17,6 @@ import {
   Textarea,
 } from "@/components/ui/index";
 import type { Post } from "../services/postService";
-import "../styles/global.css";
 import { ActionsBar, ManagementTable, StatsSummary } from "@/features/management/components/index";
 import { userColumns, postColumns } from "@/features/management/constants/columns";
 import {
