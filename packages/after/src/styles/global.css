@@ -1,5 +1,4 @@
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/preflight" layer(preflight);
+@import "tailwindcss";
 @import "../tokens/index.css";
 
 /* Base Styles */

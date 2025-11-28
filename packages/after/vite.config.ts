@@ -1,14 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   base: "/front_7th_chapter3-1/",
   plugins: [
-    // Tailwind must be before React plugin to process CSS correctly
-    ...(mode !== "test" ? [tailwindcss()] : []),
     react(),
   ],
   resolve: {
