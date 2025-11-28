@@ -5,10 +5,11 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/front_7th_chapter3-1/",
   plugins: [
     react(),
     // Only use Tailwind plugin in non-test mode
-    ...(mode !== 'test' ? [tailwindcss()] : []),
+    ...(mode !== "test" ? [tailwindcss()] : []),
   ],
   resolve: {
     alias: {
@@ -17,8 +18,8 @@ export default defineConfig(({ mode }) => ({
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/test/setup.ts',
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
     css: false,
   },
-}))
+}));
